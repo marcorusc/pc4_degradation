@@ -256,9 +256,7 @@ void phenotype_function( Cell* pCell, Phenotype& phenotype, double dt )
 
 
 	 // Calculate the migration direction
-    std::vector<double> migration_direction = calculate_migration_direction(Elongated);
-
-	std::cout << "migration direction" << migration_direction << std::endl;
+    	std::vector<double> migration_direction;
 
 	migration_direction.assign(3, 0.0);
 
@@ -268,10 +266,8 @@ void phenotype_function( Cell* pCell, Phenotype& phenotype, double dt )
 
 	std::cout << "migration direction" << migration_direction << std::endl;
 
-    // Define the distance (e.g., 8 microns)
-    double distance = parameters.doubles("secretion_distance");
 
-    double voxel_size = microenvironment.mesh.dx; // Assuming cubic voxels with size dx
+    	double voxel_size = microenvironment.mesh.dx; // Assuming cubic voxels with size dx
 
 	// Calculate positions one voxel away in the migration direction
 	std::vector<double> position_ahead = {
@@ -316,7 +312,7 @@ void phenotype_function( Cell* pCell, Phenotype& phenotype, double dt )
 		Elongated->phenotype.secretion.secretion_rates[cathepsine_index] = 0.0;
 		Elongated->phenotype.secretion.secretion_rates[h_plus_index] = 0.0;
 	}
-	else if (parameters.bools("MMP14"))
+	if (parameters.bools("MMP14"))
 	{
 		int ecm_index = BioFVM::microenvironment.find_density_index("ecm");
 		Elongated->phenotype.secretion.uptake_rate("ecm") = parameters.doubles("ecm_uptake_rate");

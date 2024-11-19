@@ -283,7 +283,6 @@
         <h_plus_secretion_rate type="double" units="" description="">0.5</h_plus_secretion_rate>
         <cathepsine_secretion_rate type="double" units="" description="">0.5</cathepsine_secretion_rate>
         <k_reaction type="double" units="" description="">100</k_reaction>
-        <secretion_distance type="double" units="" description="">100</secretion_distance>
         <cathepsine type="bool" units="" description="">true</cathepsine>
         <MMP14 type="bool" units="" description="">false</MMP14>
         <ecm_uptake_rate type="double" units="" description="">0.2</ecm_uptake_rate>
